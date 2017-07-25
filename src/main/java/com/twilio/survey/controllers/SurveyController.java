@@ -79,7 +79,7 @@ public class SurveyController {
      * @return TwiMLResponse
      */
     private String getFirstQuestionRedirect(Survey survey, HttpServletRequest request) throws Exception {
-        String welcomeMessage = "Welcome to the " + survey.getTitle() + " survey";
+        String welcomeMessage = "Welcome to the " + survey.getTitle() + " survey. This call is regarding your doctors appointment today! Please answer the following questions.";
         String questionURL = "/question?survey=" + survey.getId() + "&question=1";
         if (request.getParameter("MessageSid") != null) {
             return TwiMLUtil.messagingResponseWithRedirect(welcomeMessage, questionURL);
