@@ -261,7 +261,7 @@ while True:
         elif a[0]=="git":
             os.system("git init")
             os.system("git add .")
-            os.system("git remote add origin https://github.com/mukuldang/javatrial.git")
+            os.system("git remote add origin https://github.com/mukuldang/thirdtrial.git")
             os.system("git commit -m ""try"" ")
             os.system("git push origin master")
             msg="True"
