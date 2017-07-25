@@ -71,6 +71,7 @@ public class TwiMLUtil {
     	Play play = new Play.Builder("https://api.twilio.com/cowbell.mp3").build();
     	Pause pause = new Pause.Builder().length(2).build();
     	return new VoiceResponse.Builder()
+                .say(new Say.Builder(message).build())
     			.play(play)
     			.pause(pause)
                 .redirect(new Redirect.Builder().url(questionUrl).method(Method.GET).build())
