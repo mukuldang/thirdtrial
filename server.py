@@ -112,7 +112,7 @@ while True:
             print(lst)
             x={'questions':lst,'title':str(a[1])}
             print (json.dumps(x, indent=2))
-            with open('D:\\automated-survey-spring-master\\survey.json', 'w') as outfile:
+            with open('D:\\automated-survey-spring\\survey.json', 'w') as outfile:
                     json.dump(x, outfile)
             conn.sendall(data)
         elif a[0]=="password":

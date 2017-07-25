@@ -8,6 +8,8 @@ import com.twilio.twiml.Hangup;
 import com.twilio.twiml.Message;
 import com.twilio.twiml.MessagingResponse;
 import com.twilio.twiml.Method;
+import com.twilio.twiml.Pause;
+import com.twilio.twiml.Play;
 import com.twilio.twiml.Record;
 import com.twilio.twiml.Redirect;
 import com.twilio.twiml.Say;
@@ -66,8 +68,12 @@ public class TwiMLUtil {
     }
 
     public static String voiceResponseWithRedirect(String message, String questionUrl) throws TwiMLException {
-        return new VoiceResponse.Builder()
-                .say(new Say.Builder(message).build())
+    	Play play = new Play.Builder("http://e0602e59.ngrok.io/song.mp3").build();
+    	Pause pause = new Pause.Builder().length(2).build();
+    	return new VoiceResponse.Builder()
+                //.say(new Say.Builder(message).build())
+    			.play(play)
+    			.pause(pause)
                 .redirect(new Redirect.Builder().url(questionUrl).method(Method.GET).build())
                 .build()
                 .toXml();
