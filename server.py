@@ -128,15 +128,15 @@ while True:
             sheet=book.sheet_by_index(0)
             nrowss=sheet.nrows
             for i in range(0,nrowss):
-                call=client.api.account.calls.create(to=str(sheet.cell_value(i,0)),from_="+13214223232",url="https://newtrialjava.herokuapp.com/survey/call/")
+                call=client.api.account.calls.create(to=str(sheet.cell_value(i,0)),from_="+13214223232",url="https://newtrialjava2.herokuapp.com/survey/call/")
                 with open("C:\\Users\\mukul\\Desktop\\callfile.txt", "a") as myfile:
                     myfile.write(str(sheet.cell_value(i,0))+"="+str(call.sid)+"\n")
                 time.sleep(90)
             os.system("copy callfile.txt callagain.txt")
             #os.system("java -jar C:\\Users\\mukul\\Desktop\\runnable.jar")
             print("Letstry this")
-            pdfkit.from_url('https://newtrialjava.herokuapp.com/', 'Results.pdf')
-            response=urllib.urlopen('https://newtrialjava.herokuapp.com/')
+            pdfkit.from_url('https://newtrialjava2.herokuapp.com/', 'Results.pdf')
+            response=urllib.urlopen('https://newtrialjava2.herokuapp.com/')
             res=response.read()
             soup=BeautifulSoup(res)
             lis=[]
@@ -190,13 +190,13 @@ while True:
         elif a[0]=="call":
             
             for i in range(0,nrowss):
-                call=client.api.account.calls.create(to=str(sheet.cell_value(i,0)),from_="+13214223232",url="https://surveyjavatrial.herokuapp.com/survey/call/")
+                call=client.api.account.calls.create(to=str(sheet.cell_value(i,0)),from_="+13214223232",url="https://newtrialjava2.herokuapp.com/survey/call/")
                 with open("C:\\Users\\mukul\\Desktop\\callagain.txt", "a") as myfile:
                     myfile.write(str(sheet.cell_value(i,0))+"="+str(sheet.cell_value(i,0))+"\n")
                 time.sleep(90)
             print("Letstry this")
-            pdfkit.from_url('https://surveyjavatrial.herokuapp.com/', 'Results.pdf')
-            response=urllib.urlopen('https://surveyjavatrial.herokuapp.com/')
+            pdfkit.from_url('https://newtrialjava2.herokuapp.com/', 'Results.pdf')
+            response=urllib.urlopen('https://newtrialjava2.herokuapp.com/')
             res=response.read()
             soup=BeautifulSoup(res)
             lis=[]
