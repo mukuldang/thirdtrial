@@ -9,6 +9,11 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.InputStreamReader;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
@@ -79,9 +84,24 @@ public class SurveyController {
      * @return TwiMLResponse
      */
     private String getFirstQuestionRedirect(Survey survey, HttpServletRequest request) throws Exception {
-        String welcomeMessage = "Welcome to the " + survey.getTitle() + " survey. This call is regarding your doctors appointment today! Please answer the following questions.";
+    	//File fin=new File("title.txt");
+    	int tp=1;
+    	String welcomeMessage = "Welcome to the " + survey.getTitle() + " survey. This call is regarding your doctors appointment today! Please answer the following questions.";
+    	//FileInputStream fis = new FileInputStream(fin);
+    		/*BufferedReader br = new BufferedReader(new InputStreamReader(fis));
+    		String line = null;
+    		while ((line = br.readLine()) != null) {
+    			if(line=="1"){
+    				tp=Integer.parseInt(line);
+    				welcomeMessage=""
+    			System.out.println(line);}
+    			else
+    		}*/
+    		//br.close();
+
+    	
         String questionURL = "/question?survey=" + survey.getId() + "&question=1";
-        int tp=1;
+       
         if (request.getParameter("MessageSid") != null) {
             return TwiMLUtil.messagingResponseWithRedirect(welcomeMessage, questionURL);
         } else {
