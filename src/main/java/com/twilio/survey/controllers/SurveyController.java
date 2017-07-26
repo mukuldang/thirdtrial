@@ -81,10 +81,11 @@ public class SurveyController {
     private String getFirstQuestionRedirect(Survey survey, HttpServletRequest request) throws Exception {
         String welcomeMessage = "Welcome to the " + survey.getTitle() + " survey. This call is regarding your doctors appointment today! Please answer the following questions.";
         String questionURL = "/question?survey=" + survey.getId() + "&question=1";
+        int tp=1;
         if (request.getParameter("MessageSid") != null) {
             return TwiMLUtil.messagingResponseWithRedirect(welcomeMessage, questionURL);
         } else {
-            return TwiMLUtil.voiceResponseWithRedirect(welcomeMessage, questionURL);
+            return TwiMLUtil.voiceResponseWithRedirect(tp,welcomeMessage, questionURL);
         }
     }
 
