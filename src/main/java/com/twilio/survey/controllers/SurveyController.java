@@ -102,9 +102,9 @@ public class SurveyController {
     	
     	String welcomeMessage;
     	int tp=Integer.parseInt(readFile("typintro.txt"));
-    	//if (tp==0){
-    	//	welcomeMessage = readFile("intro.txt");
-    	//}
+    	if (tp==0){
+    		welcomeMessage = readFile("intro.txt");
+    	}
     	//else{
     	//	
     	//}
