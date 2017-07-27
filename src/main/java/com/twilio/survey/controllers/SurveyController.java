@@ -12,6 +12,8 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileInputStream;
+import java.io.FileReader;
+import java.io.IOException;
 import java.io.InputStreamReader;
 
 import javax.servlet.http.HttpServletRequest;
@@ -83,22 +85,34 @@ public class SurveyController {
      * @param request HttpServletRequest request
      * @return TwiMLResponse
      */
+    private String readFile(String fileName) throws IOException {
+        BufferedReader br = new BufferedReader(new FileReader(fileName));
+        try {
+            StringBuilder sb = new StringBuilder();
+            String line = br.readLine();
+
+            while (line != null) {
+                sb.append(line);
+                sb.append("\n");
+                line = br.readLine();
+            }
+            return sb.toString();
+        } finally {
+            br.close();
+        }
+    }
     private String getFirstQuestionRedirect(Survey survey, HttpServletRequest request) throws Exception {
     	//File fin=new File("title.txt");
-    	int tp=1;
-    	String welcomeMessage = "Welcome to the " + survey.getTitle() + " survey. This call is regarding your doctors appointment today! Please answer the following questions.";
-    	//FileInputStream fis = new FileInputStream(fin);
-    		/*BufferedReader br = new BufferedReader(new InputStreamReader(fis));
-    		String line = null;
-    		while ((line = br.readLine()) != null) {
-    			if(line=="1"){
-    				tp=Integer.parseInt(line);
-    				welcomeMessage=""
-    			System.out.println(line);}
-    			else
-    		}*/
-    		//br.close();
-
+    	int tp;
+    	String welcomeMessage;
+    	tp=Integer.parseInt(readFile("typintro.txt"));
+    	if (tp==0){
+    		welcomeMessage = readFile("intro.txt");
+    	}
+    	else{
+    		welcomeMessage="https://api.twilio.com/cowbell.mp3";
+    	}
+    	
     	
         String questionURL = "/question?survey=" + survey.getId() + "&question=1";
        

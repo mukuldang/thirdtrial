@@ -1,5 +1,9 @@
 package com.twilio.survey.util;
 
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.io.IOException;
+
 import com.twilio.survey.models.Question;
 import com.twilio.survey.models.Survey;
 import com.twilio.twiml.Body;
@@ -66,10 +70,10 @@ public class TwiMLUtil {
                 .build()
                 .toXml();
     }
-
+    
     public static String voiceResponseWithRedirect(int tp, String message, String questionUrl) throws TwiMLException {
     	if(tp==1){
-    	Play play = new Play.Builder("https://api.twilio.com/cowbell.mp3").build();
+    	Play play = new Play.Builder(message).build();
     	Pause pause = new Pause.Builder().length(2).build();
     	return new VoiceResponse.Builder()
     			.play(play)
