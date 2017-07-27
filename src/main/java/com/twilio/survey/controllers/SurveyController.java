@@ -90,12 +90,8 @@ public class SurveyController {
         try {
             StringBuilder sb = new StringBuilder();
             String line = br.readLine();
-
-            while (line != null) {
-                sb.append(line);
-                sb.append("\n");
-                line = br.readLine();
-            }
+            sb.append(line);
+            
             return sb.toString();
         } finally {
             br.close();
@@ -103,9 +99,9 @@ public class SurveyController {
     }
     private String getFirstQuestionRedirect(Survey survey, HttpServletRequest request) throws Exception {
     	//File fin=new File("title.txt");
-    	int tp=1;
+    	
     	String welcomeMessage;
-    	tp=Integer.parseInt(readFile("typintro.txt"));
+    	int tp=Integer.parseInt(readFile("typintro.txt"));
     	//if (tp==0){
     	//	welcomeMessage = readFile("intro.txt");
     	//}
