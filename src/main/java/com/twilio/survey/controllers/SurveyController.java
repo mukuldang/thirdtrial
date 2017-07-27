@@ -105,10 +105,11 @@ public class SurveyController {
     	if (tp==0){
     		welcomeMessage = readFile("intro.txt");
     	}
-    	//else{
-    	//	
-    	//}
+    	else{
     	welcomeMessage="https://api.twilio.com/cowbell.mp3";
+    		
+    	}
+    	
     	
         String questionURL = "/question?survey=" + survey.getId() + "&question=1";
        
