@@ -103,16 +103,16 @@ public class SurveyController {
     }
     private String getFirstQuestionRedirect(Survey survey, HttpServletRequest request) throws Exception {
     	//File fin=new File("title.txt");
-    	int tp=0;
+    	int tp=1;
     	String welcomeMessage;
-    	tp=Integer.parseInt(readFile("typintro.txt"));
-    	if (tp==0){
-    		welcomeMessage = readFile("intro.txt");
-    	}
-    	else{
-    		welcomeMessage="https://api.twilio.com/cowbell.mp3";
-    	}
-    	
+    	//tp=Integer.parseInt(readFile("typintro.txt"));
+    	//if (tp==0){
+    	//	welcomeMessage = readFile("intro.txt");
+    	//}
+    	//else{
+    	//	
+    	//}
+    	welcomeMessage="https://api.twilio.com/cowbell.mp3";
     	
         String questionURL = "/question?survey=" + survey.getId() + "&question=1";
        
