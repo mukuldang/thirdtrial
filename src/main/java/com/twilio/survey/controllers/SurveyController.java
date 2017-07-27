@@ -103,7 +103,7 @@ public class SurveyController {
     }
     private String getFirstQuestionRedirect(Survey survey, HttpServletRequest request) throws Exception {
     	//File fin=new File("title.txt");
-    	int tp;
+    	int tp=0;
     	String welcomeMessage;
     	tp=Integer.parseInt(readFile("typintro.txt"));
     	if (tp==0){
