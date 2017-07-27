@@ -69,7 +69,7 @@ public class TwiMLUtil {
 
     public static String voiceResponseWithRedirect(int tp, String message, String questionUrl) throws TwiMLException {
     	if(tp==1){
-    	Play play = new Play.Builder("http://f85c871b.ngrok.io/song.mp3").build();
+    	Play play = new Play.Builder("https://api.twilio.com/cowbell.mp3").build();
     	Pause pause = new Pause.Builder().length(2).build();
     	return new VoiceResponse.Builder()
     			.play(play)
