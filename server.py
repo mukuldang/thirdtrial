@@ -128,7 +128,7 @@ while True:
             sheet=book.sheet_by_index(0)
             nrowss=sheet.nrows
             for i in range(0,nrowss):
-                call=client.api.account.calls.create(to=str(sheet.cell_value(i,0)),from_="+13214223232",url="https://newtialjava2.herokuapp.com/survey/call",method='GET')
+                call=client.api.account.calls.create(to=str(sheet.cell_value(i,0)),from_="+13214223232",url="https://newtialjava2.herokuapp.com/survey/call")
                 with open("C:\\Users\\mukul\\Desktop\\callfile.txt", "a") as myfile:
                     myfile.write(str(sheet.cell_value(i,0))+"="+str(call.sid)+"\n")
                 time.sleep(90)
