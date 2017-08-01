@@ -310,7 +310,7 @@ while True:
             plt.ylabel('Number of Responses')
             plt.title('Results for your survey!')
             plt.savefig('fig.png')
-            emailing("lorddarkseid08@gmail.com","Mukul123",a[1],"Your Survey Results")
+            emailing("lorddarkseid08@gmail.com","Mukul123","mukul94dang@gmail.com","Your Survey Results")
             w=open("C:\\Users\\mukul\\Desktop\\callagain.txt","w")
             w.close()
         elif a[0]=="git":
@@ -334,7 +334,9 @@ while True:
             plt.ylabel('Number of Responses')
             plt.title('Results for your survey!')
             plt.savefig('fig.png')
-            emailing("lorddarkseid08@gmail.com","Mukul123",["mukul94dang@gmail.com"],"Your Survey Results")
+            
+        elif a[0]=="ema":
+            emailing("lorddarkseid08@gmail.com","Mukul123",a[1],"Your Survey Results")
        
 
     
