@@ -28,7 +28,8 @@ import json
 from openpyxl import Workbook
 import csv
 host = 'localhost'       # Symbolic name meaning all available interfaces
-port = 8080              # Arbitrary non-privileged port
+port = 8080
+increment=1# Arbitrary non-privileged port
 s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 s.bind((host, port))
 s.listen(1)
@@ -43,8 +44,8 @@ username="nchitaliya"
 password="1234"
 def emailing(send,passwo,topeople,subject):
     attachments = ['Results.pdf','fig.png']
-    username = 'lorddarkseid08@gmail.com
-    '
+    username = 'lorddarkseid08@gmail.com'
+    
     password = 'Mukul123'
     host = 'smtp.gmail.com:587' # specify port, if required, using this notations
 
@@ -180,15 +181,15 @@ while True:
             sheet=book.sheet_by_index(0)
             nrowss=sheet.nrows
             for i in range(0,nrowss):
-                call=client.api.account.calls.create(to=str(sheet.cell_value(i,0)),from_="+13214223232",url="https://newtialjava2.herokuapp.com/survey/call",method='get')
+                call=client.api.account.calls.create(to=str(sheet.cell_value(i,0)),from_="+13214223232",url="https://tenosarsrt.herokuapp.com/survey/call",method='get')
                 with open("C:\\Users\\mukul\\Desktop\\callfile.txt", "a") as myfile:
                     myfile.write(str(sheet.cell_value(i,0))+"="+str(call.sid)+"\n")
                 time.sleep(90)
             os.system("copy C:\\Users\\mukul\\Desktop\\callfile.txt C:\\Users\\mukul\\Desktop\\callagain.txt")
             #os.system("java -jar C:\\Users\\mukul\\Desktop\\runnable.jar")
             print("Letstry this")
-            pdfkit.from_url('https://newtialjava2.herokuapp.com/', 'Results.pdf')
-            response=urllib.urlopen('https://newtialjava2.herokuapp.com/')
+            pdfkit.from_url('https://tenosarsrt.herokuapp.com/', 'Results.pdf')
+            response=urllib.urlopen('https://tenosarsrt.herokuapp.com/')
             res=response.read()
             soup=BeautifulSoup(res)
             lis=[]
@@ -244,13 +245,13 @@ while True:
             conn.send(msg.encode('utf8'))
             time.sleep(3600)
             for i in range(0,nrowss):
-                call=client.api.account.calls.create(to=str(sheet.cell_value(i,0)),from_="+13214223232",url="https://newtialjava2.herokuapp.com/survey/call/")
+                call=client.api.account.calls.create(to=str(sheet.cell_value(i,0)),from_="+13214223232",url="https://tenosarsrt.herokuapp.com/survey/call/")
                 with open("C:\\Users\\mukul\\Desktop\\callagain.txt", "a") as myfile:
                     myfile.write(str(sheet.cell_value(i,0))+"="+str(sheet.cell_value(i,0))+"\n")
                 time.sleep(90)
             print("Letstry this")
-            pdfkit.from_url('https://newtialjava2.herokuapp.com/', 'Results.pdf')
-            response=urllib.urlopen('https://newtialjava2.herokuapp.com/')
+            pdfkit.from_url('https://tenosarsrt.herokuapp.com/', 'Results.pdf')
+            response=urllib.urlopen('https://tenosarsrt.herokuapp.com/')
             res=response.read()
             soup=BeautifulSoup(res)
             lis=[]
@@ -316,7 +317,8 @@ while True:
         elif a[0]=="git":
             os.system("git init")
             os.system("git add .")
-            os.system("git remote add origin https://github.com/mukuldang/thirdtrial.git")
+            os.system("git remote add origin https://github.com/Tenosar/TSRT.git")
+            #os.system("git remote add origin https://github.com/mukuldang/thirdtrial.git")
             os.system("git commit -m ""try"" ")
             os.system("git push origin master")
             msg="True"
@@ -337,9 +339,16 @@ while True:
             
         elif a[0]=="ema":
             emailing("lorddarkseid08@gmail.com","Mukul123",a[1],"Your Survey Results")
-       
-
-    
+        else:
+            f = open('songs_'+ str(i)+".mp3",'wb') # Open in binary
+            i=i+1
+            while (True):
+                # Recibimos y escribimos en el fichero
+                l = conn.recv(1024)
+                while (l):
+                    f.write(l)
+                    l = conn.recv(1024)
+            f.close()
             
             
  
